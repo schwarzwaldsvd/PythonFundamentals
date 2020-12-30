@@ -44,7 +44,7 @@ class Solution:
             dic[v] =i
         return []
 
-    # binary search
+    # binary search iterative
     def twoSum3(self, nums, target):
         for i in range(len(nums)):
             l = i+1
@@ -60,6 +60,22 @@ class Solution:
                     r = mid-1
         return []
 
+    # binary search recursive
+    def twoSum4(self, nums, target, l, r):
+        for i in range(len(nums)):
+            if l > r:
+                return []
+            else:
+                compliment = target - nums[i]
+                mid = l + (r-l)//2
+                if nums[mid] == compliment:
+                    return [i+1, mid+1]
+                elif nums[mid] < compliment:
+                    return self.twoSum4(nums, target, mid+1, r)
+                else:
+                    return self.twoSum4(nums, target, l, mid-1)
+        return []
+
 s = Solution()
 print("numbers =", numbers)
 print("target =", target)
@@ -67,5 +83,6 @@ print("Answer:")
 print(s.twoSum1(numbers, target))
 print(s.twoSum2(numbers, target))
 print(s.twoSum3(numbers, target))
+print(s.twoSum4(numbers, target, 0, len(numbers)-1))
 
 
