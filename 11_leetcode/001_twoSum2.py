@@ -15,14 +15,14 @@ nums[i], i
 
 class Solution:
     def twoSum(self, A, target):
-        if len(A) <= 1:
-            return []
-        compliments = {}
-        for i in range(len(A)):
-            if A[i] in compliments:
-                return [compliments[A[i]], i]
-            else:
-                compliments[target - A[i]] = i
+        if len(A) > 1:
+            ht = dict()
+            for i, v in enumerate(A):
+                if v in ht:
+                    return [ht[v], i]
+                else:
+                    ht[target - v] = i
+        return []
 
     def twoSumSorted(self, A, target):
         A.sort()
