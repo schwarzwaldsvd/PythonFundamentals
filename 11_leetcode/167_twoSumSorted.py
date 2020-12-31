@@ -64,8 +64,11 @@ s = Solution()
 print("numbers =", numbers)
 print("target =", target)
 print("Answer:")
+
 print(s.twoSum1(numbers, target))
 print(s.twoSum2(numbers, target))
 print(s.twoSum3(numbers, target))
 
-
+assert s.twoSum1(numbers, target) == [1 ,4] 
+assert s.twoSum2(numbers, target) == [1 ,4] 
+assert s.twoSum3(numbers, target) == [1 ,4] 

@@ -11,3 +11,7 @@ def print_capitals():
 words = ["hi", "hello", "foxtrot", "hotel"]
 def print_first():
     return {x[0]: x for x in words}
+
+cities = ['London', 'New York', 'Sydney']
+
+print(all(name == name.title() for name in cities))
