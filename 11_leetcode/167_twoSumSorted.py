@@ -38,10 +38,10 @@ class Solution:
     # dictionary
     def twoSum2(self, nums, target):
         dic = {}
-        for i, v in enumerate(nums):
-            if target-v in dic:
-                return [dic[target-v]+1, i+1]
-            dic[v] =i
+        for i, k in enumerate(nums):
+            if target-k in dic:
+                return [dic[target-k]+1, i+1]
+            dic[k] =i
         return []
 
     # binary search iterative
