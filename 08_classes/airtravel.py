@@ -84,22 +84,22 @@ class Flight:
 
         return row, letter
 
-    def allocate_seat(self, seat, passenger):
-        """Allocate a seat to a passenger.
+    # def allocate_seat(self, seat, passenger):
+    #     """Allocate a seat to a passenger.
 
-        Args:
-            seat: A seat designator such as '12C' or '21F'.
-            passenger: The passenger name.
+    #     Args:
+    #         seat: A seat designator such as '12C' or '21F'.
+    #         passenger: The passenger name.
 
-        Raises:
-            ValueError: If the seat is unavailable.
-        """
-        row, letter = self._parse_seat(seat)
+    #     Raises:
+    #         ValueError: If the seat is unavailable.
+    #     """
+    #     row, letter = self._parse_seat(seat)
 
-        if self._seating[row][letter] is not None:
-            raise ValueError("Seat {} already occupied".format(seat))
+    #     if self._seating[row][letter] is not None:
+    #         raise ValueError("Seat {} already occupied".format(seat))
 
-        self._seating[row][letter] = passenger
+    #     self._seating[row][letter] = passenger
 
     def relocate_passenger(self, from_seat, to_seat):
         """Relocate a passenger to a different seat.
@@ -148,9 +148,9 @@ class Aircraft:
       def registration(self):
           return self._registration
 
-      def num_seats(self):
-          rows, row_seats = self.seating_plan()
-          return len(rows) * len(row_seats)
+    #   def num_seats(self):
+    #       rows, row_seats = self.seating_plan()
+    #       return len(rows) * len(row_seats)
 
 
 class AirbusA319(Aircraft):
