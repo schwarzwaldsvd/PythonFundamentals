@@ -78,7 +78,7 @@ class LinkedList:
         while itr:
             count += 1
             itr = itr.next
-        return count
+        return count, self.size
 
     def remove_at(self, index):
         if index < 0 or index >= self.size:
