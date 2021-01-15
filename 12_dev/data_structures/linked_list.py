@@ -193,6 +193,20 @@ class LinkedList:
                 break
             itr = itr.next
             index += 1
+        
+    def contains(self, data):
+        if self.head is None:
+            return -1
+
+        if self.head.data == data:
+            return True
+       
+        itr = self.head
+        while itr:
+            if itr.data == data:
+                return True
+            itr = itr.next
+        return False
 
 
 if __name__ == '__main__':
@@ -242,3 +256,4 @@ if __name__ == '__main__':
     ll.remove_by_value("grapes")
     ll.print()
     print("head:", ll.head.data, ", tail:", ll.tail.data, ", size:", ll.size)
+    print(ll.contains("grapes"))

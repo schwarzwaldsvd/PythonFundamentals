@@ -222,6 +222,21 @@ class DoublyLinkedList:
             index += 1
 
 
+    def contains(self, data):
+        if self.head is None:
+            return -1
+
+        if self.head.data == data:
+            return True
+       
+        itr = self.head
+        while itr:
+            if itr.data == data:
+                return True
+            itr = itr.next
+        return False
+
+
 if __name__ == '__main__':
     ll = DoublyLinkedList()
     ll.insert_at_end(5)
@@ -257,4 +272,4 @@ if __name__ == '__main__':
     print("head:", ll.head.data, ", tail:", ll.tail.data, ", size:", ll.size)
     print(ll.get_length_fwd())
     print(ll.get_length_bkw())
-    
+    print(ll.contains("mango"))
