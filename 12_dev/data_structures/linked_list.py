@@ -34,9 +34,10 @@ class LinkedList:
             self.size += 1
             return
         
-        itr = self.head
-        while itr.next:
-            itr = itr.next
+        # itr = self.head
+        # while itr.next:
+        #     itr = itr.next
+        itr = self.tail
         
         itr.next = Node(data, None)
         self.tail = itr.next
@@ -61,6 +62,7 @@ class LinkedList:
     def insert_values(self, data_list, overwrite):
         if overwrite:
             self.head = None
+            self.size = 0
         for data in data_list:
             self.insert_at_end(data)
 
@@ -68,6 +70,7 @@ class LinkedList:
     def insert_values_reversed(self, data_list, overwrite):
         if overwrite:
             self.head = None
+            self.size = 0
         for data in data_list:
             self.insert_at_beginning(data)
 
@@ -79,6 +82,7 @@ class LinkedList:
             count += 1
             itr = itr.next
         return count, self.size
+
 
     def remove_at(self, index):
         if index < 0 or index >= self.size:
@@ -93,13 +97,17 @@ class LinkedList:
         itr = self.head
         while itr:
             if count == index - 1:
-                itr.next = itr.next.next
-                self.tail = itr
+                if itr.next.next is not None:
+                    itr.next = itr.next.next
+                else:
+                    itr.next = None
+                    self.tail = itr
                 self.size -= 1
                 break
             itr = itr.next
             count += 1
     
+
     def insert_at(self, index, data):
         if index < 0 or index >= self.size:
             raise Exception(f"Index '{index}' is not a valid index")
@@ -120,6 +128,7 @@ class LinkedList:
                 itr = itr.next
                 count += 1
 
+
     def find_index_by_value(self, value):
         # finds the value and returns its respective index from the list
         if self.head is None:
@@ -135,6 +144,7 @@ class LinkedList:
                 return index
             itr = itr.next
             index += 1
+
 
     # Search for first occurance of data_after value in linked list
     # Now insert data_to_insert after 'data_after' node
