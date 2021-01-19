@@ -1,13 +1,7 @@
+def loopNTimes(n):
+    print(f"n = {n}")
+    if n<= 1:
+        return 'complete'
+    return loopNTimes(n-1)
 
-def recursion():
-        
-    tracker = 0
-
-    def callMe():
-        tracker += 1
-        if tracker == 3:
-            tracker = 0
-            return f'loops! '
-        return callMe()
-
-callMe = recursion()
+print(loopNTimes(3))
